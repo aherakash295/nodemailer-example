@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <form action="/send-email" method="POST" enctype="multipart/form-data">
+      <h2>Contact Us</h2>
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" placeholder="Your message..."></textarea>
+
+      <!-- File input -->
+      <input type="file" name="attachments" id="fileInput" multiple />
+
+      <!-- Div to display selected files and icons -->
+      <div id="fileNames"></div>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <script>
+      // Function to update the display of selected filenames and icons
+      document.getElementById('fileInput').addEventListener('change', function (event) {
+        const fileNamesDiv = document.getElementById('fileNames');
+        fileNamesDiv.innerHTML = ''; // Clear the previous file list
+
+        const files = event.target.files;
+
+        // Loop through each selected file
+        Array.from(files).forEach((file) => {
+          const fileName = file.name;
+          const fileIcon = getFileIcon(file);
+
+          // Create a container for each file's name and icon
+          const fileDisplay = document.createElement('div');
+          fileDisplay.classList.add('file-display');
+          fileDisplay.style.display = 'flex';
+
+          const icon = document.createElement('img');
+          icon.src = fileIcon;
+          icon.alt = 'File Icon';
+          icon.style.width = '20px'; // Adjust size of the icon
+          icon.style.marginRight = '8px';
+
+          const name = document.createElement('span');
+          name.textContent = fileName;
+
+          fileDisplay.appendChild(icon);
+          fileDisplay.appendChild(name);
+
+          fileNamesDiv.appendChild(fileDisplay);
+        });
+      });
+
+      // Function to determine the appropriate icon based on file type
+      function getFileIcon(file) {
+        const fileType = file.type.split('/')[0]; // Extract the type (image, pdf, etc.)
+        switch (fileType) {
+          case 'image':
+            return 'https://img.icons8.com/ios-filled/50/000000/image.png'; // Image icon
+          case 'application':
+            if (file.name.toLowerCase().endsWith('.pdf')) {
+              return 'https://img.icons8.com/ios-filled/50/000000/pdf.png'; // PDF icon
+            }
+            break;
+          default:
+            return 'https://img.icons8.com/ios-filled/50/000000/file.png'; // Default file icon
+        }
+        return 'https://img.icons8.com/ios-filled/50/000000/file.png'; // Default file icon for unknown file types
+      }
+    </script>
+  </body>
+</html>

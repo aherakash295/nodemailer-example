@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "This project is a Node.js application that uses the Nodemailer package to send emails. It provides an HTML form where users can enter their username, message, and upload attachment files. When the form is submitted, the server processes the data and sends an email containing the user's message and attachments using Nodemailer.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "fs": "^0.0.1-security",
