@@ -1,0 +1,17 @@
+# Node modules (don't upload dependencies)
+node_modules/
+
+# Environment variables (like email credentials)
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Uploaded files (optional: if you store attachments/uploads temporarily)
+uploads/
+
+# OS system files
+.DS_Store
+Thumbs.db
