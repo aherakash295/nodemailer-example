@@ -9,6 +9,18 @@ Upon form submission, the server processes the data and sends an email using the
 - Sends an email with the provided details and attachments.
 - Built with Node.js and Nodemailer.
 
+## Screenshots
+
+### 1. Form Page
+![Form Page](./screenshots/form.png)
+
+### 2. Email Sent Successfully
+![Email Sent](./screenshots/success.png)
+
+### 3. Email Format
+![Email Sent](./screenshots/email.png)
+
+
 ## Setup
 1. Clone the repository
 2. Install dependencies: `npm install`
@@ -20,4 +32,5 @@ Upon form submission, the server processes the data and sends an email using the
 - Express.js
 - Nodemailer
 - HTML/CSS (basic form)
+
 
